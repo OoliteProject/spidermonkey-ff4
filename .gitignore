@@ -5,3 +5,8 @@ ehthumbs.db
 # Mac OS X cruft
 .DS_Store
 Icon?
+
+# Created by Oolite Linux build system
+js/src/build-debug/
+js/src/build-release/
+
