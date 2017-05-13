@@ -282,7 +282,7 @@ NewXMLNamespace(JSContext *cx, JSLinearString *prefix, JSLinearString *uri, JSBo
 
     obj = NewBuiltinClassInstanceXML(cx, &js_NamespaceClass);
     if (!obj)
-        return JS_FALSE;
+        return NULL;
     JS_ASSERT(JSVAL_IS_VOID(obj->getNamePrefixVal()));
     JS_ASSERT(JSVAL_IS_VOID(obj->getNameURIVal()));
     JS_ASSERT(JSVAL_IS_VOID(obj->getNamespaceDeclared()));
@@ -431,7 +431,7 @@ ConvertQNameToString(JSContext *cx, JSObject *obj)
         size_t length = str->length();
         jschar *chars = (jschar *) cx->malloc((length + 2) * sizeof(jschar));
         if (!chars)
-            return JS_FALSE;
+            return NULL;
         *chars = '@';
         const jschar *strChars = str->getChars(cx);
         if (!strChars) {
