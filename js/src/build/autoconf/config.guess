@@ -1245,8 +1245,9 @@ EOF
 	echo ${UNAME_MACHINE}-apple-rhapsody${UNAME_RELEASE}
 	exit ;;
     *:Darwin:*:*)
-	UNAME_PROCESSOR=`uname -p` || UNAME_PROCESSOR=unknown
+	UNAME_PROCESSOR=`uname -m` || UNAME_PROCESSOR=unknown
 	case $UNAME_PROCESSOR in
+	    arm64) UNAME_PROCESSOR=aarch64 ;;
 	    i386) eval $set_cc_for_build
 	          if $CC_FOR_BUILD -E -dM -x c /dev/null | grep __LP64__>/dev/null 2>&1 ; then
 	            UNAME_PROCESSOR=x86_64

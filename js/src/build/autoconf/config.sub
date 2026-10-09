@@ -248,6 +248,7 @@ case $basic_machine in
 	| alpha | alphaev[4-8] | alphaev56 | alphaev6[78] | alphapca5[67] \
 	| alpha64 | alpha64ev[4-8] | alpha64ev56 | alpha64ev6[78] | alpha64pca5[67] \
 	| am33_2.0 \
+	| aarch64 \
 	| arc | arm | arm[bl]e | arme[lb] | armv[2345] | armv[345][lb] | avr | avr32 \
 	| bfin \
 	| c4x | clipper \
@@ -328,6 +329,7 @@ case $basic_machine in
 	| alpha-* | alphaev[4-8]-* | alphaev56-* | alphaev6[78]-* \
 	| alpha64-* | alpha64ev[4-8]-* | alpha64ev56-* | alpha64ev6[78]-* \
 	| alphapca5[67]-* | alpha64pca5[67]-* | arc-* \
+	| aarch64-* \
 	| arm-*  | armbe-* | armle-* | armeb-* | armv*-* \
 	| avr-* | avr32-* \
 	| bfin-* | bs2000-* \
@@ -429,6 +431,12 @@ case $basic_machine in
 		;;
 	amd64-*)
 		basic_machine=x86_64-`echo $basic_machine | sed 's/^[^-]*-//'`
+		;;
+	arm64)
+		basic_machine=aarch64-unknown
+		;;
+	arm64-*)
+		basic_machine=aarch64-`echo $basic_machine | sed 's/^[^-]*-//'`
 		;;
 	amdahl)
 		basic_machine=580-amdahl
