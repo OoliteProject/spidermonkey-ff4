@@ -7997,6 +7997,16 @@ EOF
 EOF
 
     ;;
+aarch64*-*|arm64*-*)
+    ENABLE_TRACEJIT=
+    ENABLE_METHODJIT=
+    ENABLE_MONOIC=
+    ENABLE_POLYIC=
+    cat >> confdefs.h <<\EOF
+#define JS_PUNBOX64 1
+EOF
+
+    ;;
 arm*-*)
     ENABLE_TRACEJIT=1
     NANOJIT_ARCH=ARM
@@ -8151,6 +8161,8 @@ EOF
 #define AVMPLUS_64BIT 1
 EOF
 
+    ;;
+aarch64*-*|arm64*-*)
     ;;
 arm*-*)
     cat >> confdefs.h <<\EOF

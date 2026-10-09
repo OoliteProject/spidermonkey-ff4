@@ -2947,6 +2947,13 @@ x86_64*-*)
     AC_DEFINE(JS_CPU_X64)
     AC_DEFINE(JS_PUNBOX64)
     ;;
+aarch64*-*|arm64*-*)
+    ENABLE_TRACEJIT=
+    ENABLE_METHODJIT=
+    ENABLE_MONOIC=
+    ENABLE_POLYIC=
+    AC_DEFINE(JS_PUNBOX64)
+    ;;
 arm*-*)
     ENABLE_TRACEJIT=1
     NANOJIT_ARCH=ARM
@@ -3018,6 +3025,8 @@ i?86-*)
 x86_64*-*)
     AC_DEFINE(AVMPLUS_AMD64)
     AC_DEFINE(AVMPLUS_64BIT)
+    ;;
+aarch64*-*|arm64*-*)
     ;;
 arm*-*)
     AC_DEFINE(AVMPLUS_ARM)
